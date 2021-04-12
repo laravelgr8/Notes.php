@@ -694,6 +694,10 @@ $table->string('email');
 Now goto cmd and type
 php artisan migrate
 check database
+	
+For Rollback:
+php artisan migrate:rollback
+php artisan migrate:rollback --step=5	
 -------------------------------------------------
 
 Migrat ke through bana huaa table delete kase kare:-30
