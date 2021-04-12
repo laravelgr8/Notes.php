@@ -698,6 +698,10 @@ check database
 For Rollback:
 php artisan migrate:rollback
 php artisan migrate:rollback --step=5	
+
+Drop All Tables & Migrate:
+php artisan migrate:fresh
+php artisan migrate:fresh --seed
 -------------------------------------------------
 
 Migrat ke through bana huaa table delete kase kare:-30
