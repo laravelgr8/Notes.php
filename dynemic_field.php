@@ -72,7 +72,7 @@ class User extends Controller
     	
     	if($req->ajax())
     	{
-  			$name=$req->name;
+  		$name=$req->name;
     		$email=$req->email;
     		for($i=0;$i<count($name);$i++)
     		{
@@ -83,7 +83,7 @@ class User extends Controller
     			$insert_data[]=$data;
     		}
     		return DB::table('records')
-					->insert($insert_data);  		
+				->insert($insert_data);  		
     	}
 
     }
