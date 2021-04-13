@@ -236,3 +236,16 @@ $data=DB::table('login')
 return view('home',["data"=>$data]);	
 }
 ==============================================================================
+Id Pass:-
+on view:
+<a href="{{'edit/'.$dat->id}}">Edit</a>
+
+On Route:
+Route::get('edit/{id}',[User::class,'edit']);
+
+On Controller:
+function edit($id)
+{
+echo $id;
+}
+===============================================================================
