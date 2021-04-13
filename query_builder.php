@@ -208,3 +208,22 @@ foreach($data as $rec)
 	echo $rec->name;
 }
 ===========================================================================
+Inner Join:-
+function show()
+{
+$data=DB::table('login')
+		 ->join('student','student.empid','=','login.id')
+		 ->get();
+return view('home',["data"=>$data]);	
+}
+		
+==============================================================================
+Left Join:- left table ka all record(login)
+function show()
+{
+$data=DB::table('login')
+		 ->leftJoin('student','student.empid','=','login.id')
+		 ->get();
+return view('home',["data"=>$data]);	
+}
+==============================================================================
