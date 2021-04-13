@@ -8,3 +8,9 @@ function signup(Request $req)
   $data=DB::table('login')->insert($validatedData);
   return redirect('home');
 }
+
+
+error show on view:-
+@error('name')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
