@@ -227,3 +227,12 @@ $data=DB::table('login')
 return view('home',["data"=>$data]);	
 }
 ==============================================================================
+Cross Join:- ont to one
+function show()
+{
+$data=DB::table('login')
+		 ->crossJoin('student')
+		 ->get();
+return view('home',["data"=>$data]);	
+}
+==============================================================================
