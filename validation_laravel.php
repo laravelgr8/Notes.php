@@ -14,3 +14,37 @@ error show on view:-
 @error('name')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
+=========================================
+Full validation (Also checkbox)
+function add(Request $request)
+	{
+
+		// $result=$request->all();
+		$request->validate([
+			"name"=>"required",
+			"email"=>"required",
+			"password"=>"required",
+			"gender"=>"required",
+			"qualification"=>"required",
+			"pic"=>"required"
+		]);
+		// $result["qualification"]=implode(",", $request->qualification);
+		if($request->hasfile('pic'))
+		{
+			$file=$request->file("pic");
+			$extension=$file->getClientOriginalExtension();
+			$filename=time().".".$extension;
+			$file->move("img/",$filename);
+			$pic=$filename;
+		}
+		$result=array(
+			"name"=>$request->name,
+			"email"=>$request->email,
+			"password"=>$request->password,
+			"gender"=>$request->gender,
+			"qualification"=>implode(",", $request->qualification),
+			"pic"=>$pic
+		);
+		$data=DB::table("records")->insert($result);
+		return redirect("home");
+	}
