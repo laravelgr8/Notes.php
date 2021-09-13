@@ -89,3 +89,43 @@ Route::post('insert',[UserController::class,'insert']);
 Route::put('update',[UserController::class,'update']);
 Route::delete('delete',[UserController::class,'delete']);//by array
 Route::delete('delete/{id}',[UserController::class,'delete_two']);//by url
+
+
+
+
+
+
+
+
+
+
+
+
+How to data validate in api:-
+
+use Validator;
+function test(Request $request)
+{
+	$rules=array(
+		"memeber_id"=>'required'
+	);
+
+	$validator=Validator::make($request->all(),$rules);	
+	if($validator->false())
+	{
+		return response()->json($validator->errors(),401);
+	}
+	else
+	{
+		//insert data here
+	}
+}
+
+
+
+file upload by api:-
+function upload(Request $request)
+{
+	$result=$request->file('file')->store('img');
+	return 
+}
